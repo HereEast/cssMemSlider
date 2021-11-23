@@ -1,5 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
 
 body {
-    background-color: bisque;
+    background-color: #25282A;
+    padding: 0 20px;
+}
+
+.slider-container {
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    margin: 80px auto;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    width: 500%;
+    display: flex;
+    transition: all ease 0.8s;
+    border-radius: 10px;
+}
+
+.image-container {
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-labels {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+}
+  
+.label {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #71AAFF;
+    box-sizing: border-box;
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
+
+.label:hover {
+    background-color: #FFF;
+}
+
+#btn1:checked~.radio-labels label[for="btn1"],
+#btn2:checked~.radio-labels label[for="btn2"],
+#btn3:checked~.radio-labels label[for="btn3"],
+#btn4:checked~.radio-labels label[for="btn4"],
+#btn5:checked~.radio-labels label[for="btn5"] {
+    background-color: transparent;
+    border: 1px solid #71AAFF;
+}
+
+/* SELECTED ON HOVER */
+#btn1:checked~.radio-labels label[for="btn1"]:hover,
+#btn2:checked~.radio-labels label[for="btn2"]:hover,
+#btn3:checked~.radio-labels label[for="btn3"]:hover,
+#btn4:checked~.radio-labels label[for="btn4"]:hover,
+#btn5:checked~.radio-labels label[for="btn5"]:hover{
+    border: 1px solid #FFF;
+}
+
+/* */
+
+#btn1:checked~.slider .slides {
+    transform: translate(0);
+}
+  
+#btn2:checked~.slider .slides {
+    transform: translate(-20%);
+}
+  
+#btn3:checked~.slider .slides {
+    transform: translate(-40%);
+}
+
+#btn4:checked~.slider .slides {
+    transform: translate(-60%);
+}
+
+#btn5:checked~.slider .slides {
+    transform: translate(-80%);
+}
+
+/* DESCRIPTIONS */
+.descr-slider {
+    position: absolute;
+    left: 0;
+    bottom: -45px;
+}
+
+.descr-text {
+    font-family: 'Outfit';
+    font-size: 24px;
+    color: #FFF;
+    display: none;
+}
+
+#btn1:checked~.descr-slider .descr-1 {
+    display: block;
+}
+  
+#btn2:checked~.descr-slider .descr-2 {
+    display: block;
+}
+
+#btn3:checked~.descr-slider .descr-3 {
+    display: block;
+}
+
+#btn4:checked~.descr-slider .descr-4 {
+    display: block;
+}
+
+#btn5:checked~.descr-slider .descr-5 {
+    display: block;
+}
+
+/* MOBILE*/
+@media all and (max-width: 660px) {
+    .radio-labels {
+        bottom: -50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .descr-slider {
+        bottom: -110px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .descr-text {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .descr-text {
+        font-size: 18px;
+    }
 }
